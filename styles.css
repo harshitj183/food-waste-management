@@ -1,0 +1,350 @@
+/* Reset and base styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    line-height: 1.6; /* Improved readability */
+}
+
+/* Navigation styles */
+nav {
+    background-color: #3c08f7;
+    color: snow;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+}
+
+nav:hover {
+    background-color: #3c08a7;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Centering items vertically */
+}
+
+nav a {
+    text-decoration: none;
+    color: #e8e8e8;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+    padding-bottom: 5px; /* Improved spacing */
+}
+
+nav a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #e8e8e8;
+    bottom: 0;
+    left: 0;
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+nav:hover a {
+    color: #fff;
+}
+
+nav:hover a::before {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+
+/* Main content and footer styles */
+.main-content,
+.footer {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+    background-color: #fff; /* Added background color for better contrast */
+}
+
+.main-content:hover,
+.footer:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.main-content::before,
+.footer::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: left 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.main-content:hover::before,
+.footer:hover::before {
+    left: 0;
+    opacity: 1;
+}
+
+.main-content::before {
+    background: linear-gradient(45deg, #f8f8f8, transparent, transparent, #f8f8f8);
+    left: -100%;
+}
+
+.footer::before {
+    background: linear-gradient(-45deg, #333, transparent, transparent, #333);
+    left: -100%;
+}
+
+ 
+.loading-logo {
+    width: 1px;
+    height: 1px;
+    background-color: #ffff;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    animation: rotate 1.5s infinite linear, pulse 1.5s infinite alternate, colorChange 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: #fff;
+        color: #333;
+    }
+    50% {
+        background-color: #3c08f7;
+        color: #fff;
+    }
+    100% {
+        background-color: #fff;
+        color: #333;
+    }
+}
+
+/* Logo styles */
+.logo img{
+    width: 20%;
+    height: 10%; /* Allowing height to adjust proportionally */
+}
+
+/* Parallax effect for background image */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('https://39af6a0a-0128-4c92-a207-5bc2dff6443b-00-1yraofubm38mu.pike.replit.dev/logo.png') center/cover no-repeat;
+    opacity: 0.3;
+    transform: translateZ(0);
+}
+
+/* Floating animation for featured elements */
+.feature {
+    transform-origin: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.feature:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+/* Custom scroll bar */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #3c08f7;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #222;
+    color: #fff;
+}
+
+body.dark-mode nav {
+    background-color: #111;
+}
+
+body.dark-mode .main-content,
+body.dark-mode .footer {
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive typography */
+@media screen and (max-width: 600px) {
+    .hero-section h1 {
+        font-size: 24px;
+    }
+
+    .hero-section p {
+        font-size: 16px;
+    }
+
+    .cta-button {
+        font-size: 14px;
+    }
+
+    .features-section .feature h2 {
+        font-size: 16px;
+    }
+}
+/* Additional Styles */
+
+/* Hero section styles */
+.hero-section {
+    text-align: center;
+    padding: 20px 20px; /* Increased padding for better spacing */
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.hero-section h1 {
+    font-size: 36px; /* Slightly larger font size for emphasis */
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px; /* Increased padding for better clickability */
+    background-color: #fff;
+    color: #4caf50;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 18px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    background-color: #4caf50;
+    color: #fff;
+    transform: scale(1.1); /* Slightly increased size on hover */
+}
+
+/* Features section styles */
+.features-section {
+    display: flex;
+    flex-wrap: wrap; /* Allow features to wrap on smaller screens */
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.feature {
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    margin: 15px; /* Added margin for spacing between features */
+}
+
+.feature:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.feature img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.feature h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #4caf50;
+}
+
+.feature p {
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+/* Responsive typography for Features section */
+@media screen and (max-width: 600px) {
+    .features-section .feature {
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .feature h2 {
+        font-size: 20px;
+    }
+
+    .feature p {
+        font-size: 16px;
+    }
+}
+/* Add this CSS to your existing styles.css or create a new file for it */
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: white;
+    margin: 0 20px;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+p {
+    font-size: 14px;
+    margin-top: 10px;
+}
